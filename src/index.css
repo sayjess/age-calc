@@ -1,0 +1,104 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+
+
+.date-input-form {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 20px;
+} 
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: center;
+    text-transform: uppercase;
+    align-self: flex-start;
+    margin-bottom: 5px;
+    color: gray;
+    font-weight: bold;
+}
+
+  /* remove up and down arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    padding: 15px 15px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
+
+.button-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.button-container::before {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    left: 50%; /* Horizontal center of the button */
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    height: 1.5px;
+    background-color: gray;
+    z-index: -1;
+}
+
+button {
+    border: none;
+    border-radius: 50%;
+    background-color: violet;
+    
+}
+
+button > img {
+    width: 60px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+
+/* AGE COMPONENT */
+
+.age-container {
+    padding-inline: 20px;
+}
+
+.num-col {
+    color: red;
+}
