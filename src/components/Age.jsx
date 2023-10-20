@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function Age({userData}) {
      return (
         <div className="age-container">
@@ -12,4 +14,16 @@ export default function Age({userData}) {
             </h2>
         </div>
     )
+}
+
+Age.propTypes = {
+    userData: PropTypes.shape({
+        day: PropTypes.string.isRequired,
+        month: PropTypes.string.isRequired,
+        year: PropTypes.string.isRequired,
+        formSubmitted: PropTypes.bool.isRequired,
+        daysDiffer: PropTypes.number.isRequired,
+        monthsDiffer: PropTypes.number.isRequired,
+        yearsDiffer: PropTypes.number.isRequired,
+      }).isRequired,
 }

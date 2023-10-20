@@ -1,9 +1,12 @@
+import PropTypes from 'prop-types';
+
+
 export default function Form({updateData, userData, setData}) {
-    // const [formSubmitted, setFormSubmitted] = React.useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
         if(userData.day && userData.month && userData.year) {
+            console.log('inside if elese statement')
             const userDay = userData.day;
             const userMonth = userData.month - 1; // Adjust for 0-based month
             const userYear = userData.year;
@@ -40,6 +43,8 @@ export default function Form({updateData, userData, setData}) {
                 monthsDiffer: monthsRemaining,
                 yearsDiffer: age
             }))
+
+            
         }
         
     }
@@ -104,4 +109,18 @@ export default function Form({updateData, userData, setData}) {
         </form>
     )
 
+}
+
+Form.propTypes = {
+    updateData: PropTypes.func.isRequired,
+    setData: PropTypes.func.isRequired,
+    userData: PropTypes.shape({
+        day: PropTypes.string.isRequired,
+        month: PropTypes.string.isRequired,
+        year: PropTypes.string.isRequired,
+        formSubmitted: PropTypes.bool.isRequired,
+        daysDiffer: PropTypes.number.isRequired,
+        monthsDiffer: PropTypes.number.isRequired,
+        yearsDiffer: PropTypes.number.isRequired,
+      }).isRequired,
 }
