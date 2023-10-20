@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import button from '../../public/assets/icon-arrow.svg'
 
 
 export default function Form({updateData, userData, setData}) {
@@ -48,9 +49,6 @@ export default function Form({updateData, userData, setData}) {
         }
         
     }
-
-
-
 
     return (
         <form className='form-container' onSubmit={handleSubmit}>
@@ -104,7 +102,7 @@ export default function Form({updateData, userData, setData}) {
                 </div>
             </div>
             <div className="button-container">
-                <button type="submit"><img src="../../public/assets/icon-arrow.svg"/></button>
+                <button type="submit"><img src={button}/></button>
             </div>
         </form>
     )
