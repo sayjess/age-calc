@@ -1,3 +1,60 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('../public/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* Regular */
+@font-face {
+    font-family: 'Poppins';
+    src: url('../public/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Bold */
+  @font-face {
+    font-family: 'Poppins';
+    src: url('../public/fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  /* Italic */
+  @font-face {
+    font-family: 'Poppins';
+    src: url('../public/fonts/Poppins-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  /* Bold Italic */
+  @font-face {
+    font-family: 'Poppins';
+    src: url('../public/fonts/Poppins-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  /* Extra Bold */
+  @font-face {
+    font-family: 'Poppins';
+    src: url('../public/fonts/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 800; /* You can use '800' for extrabold */
+    font-style: normal;
+  }
+  
+  /* Extra Bold Italic */
+  @font-face {
+    font-family: 'Poppins';
+    src: url('../public/fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  
+
 *,
 *::before,
 *::after {
@@ -6,44 +63,66 @@
     padding: 0;
 }
 
+html {
+    color: #141414;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
     max-width: 100vw;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f0f0f0;
+}
+
+.app-container {
+    background-color: white;
+    width: calc(100vw - 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    border-bottom-right-radius: 100px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
+    width: 100%;
+    
 }
-
-
 
 .date-input-form {
     width: inherit;
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 15px;
     justify-content: space-between;
     padding-inline: 20px;
+    margin-top: 40px;
 } 
 
 .input-group {
     display: flex;
     flex-direction: column;
+    white-space: pre-wrap;
+    position: relative;
 }
 
 label {
+    display: inline-block;
     text-align: center;
     text-transform: uppercase;
     align-self: flex-start;
     margin-bottom: 5px;
-    color: gray;
+    color: #6a6a6a;
     font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 2px;
 }
 
   /* remove up and down arrows */
@@ -54,51 +133,114 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 input[type=number] {
-    padding: 15px 15px;
+    padding: 10px 15px;
     border-radius: 8px;
-    border: 1px solid gray;
+    border: 1px solid #b4b4b4;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 20px;
+    width: 100%;
 }
 
+input[type=number]:active,
+input[type=number]:hover {
+    border-radius: 1px solid #844ef7;
+}
+
+.required-prompt {
+    color: red;
+    font-style: italic;
+    font-size: 9.5px;
+    position: absolute;
+    bottom: -15px;
+}
+
+
 .button-container {
-    margin-top: 10px;
+    margin-block: 28px 30px;
     display: flex;
     justify-content: center;
     position: relative;
     width: 100%;
+    
 }
 
 .button-container::before {
     content: "";
     position: absolute;
     bottom: 50%;
-    left: 50%; /* Horizontal center of the button */
+    left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 40px);
     height: 1.5px;
-    background-color: gray;
-    z-index: -1;
+    background-color: #b4b4b4;
+    z-index: 0;
 }
 
 button {
     border: none;
     border-radius: 50%;
-    background-color: violet;
-    
+    background-color: #844ef7;
+    z-index: 1;
 }
 
 button > img {
-    width: 60px;
-    padding: 20px;
+    width: 65px;
+    padding: 18px;
     cursor: pointer;
+    
+}
+
+button:hover {
+    background-color: #141414;
 }
 
 
 /* AGE COMPONENT */
 
 .age-container {
+    width: 100%;
     padding-inline: 20px;
+    font-size: 2.3rem;
+    margin-bottom: 50px;
+    font-weight: 800; /* Use '800' for extra bold */
+    font-style: italic;
+    line-height: 60px;
 }
 
 .num-col {
-    color: red;
+    color: #844ef7;
+}
+
+@media (min-width: 600px) {
+    .app-container {
+        max-width: 570px;
+    }
+
+    .date-input-form {
+        padding-inline: 40px;
+        justify-content: unset;
+        gap: 20px;
+    }
+
+    .button-container {
+        justify-content: flex-end;
+        width: calc(100% - 80px);
+        margin-block: 0px 10px;
+    }
+
+    .button-container::before {
+        width: 100%;
+    }
+
+    .age-container {
+        padding-left: 40px;
+        font-size: 3rem;
+        line-height: 75px;
+    }
+
+    button > img {
+        padding: 15px;
+    }
+    
 }
